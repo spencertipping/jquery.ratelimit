@@ -44,6 +44,8 @@ The `key` property is used internally to associate function-specific state.
             f.apply(self, args);
           }, delay);
         };
+
+        return result;
       };
 
       $.rateLimited.defaults = {delay: 250, key: 'rateLimitState'};
