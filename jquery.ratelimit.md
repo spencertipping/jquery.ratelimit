@@ -28,8 +28,10 @@ The `options` object is optional and has these fields:
 The `key` property is used internally to associate function-specific state.
 
     (function ($) {
-      $.rateLimited = function (f, options) {
-        var settings = $.merge({}, $.rateLimited.defaults, options);
+      $.rateLimited = function (options, f) {
+        if (!f) f = options, options = null;
+
+        var settings = $.extend({}, $.rateLimited.defaults, options);
         var delay    = options.delay;
         var stateKey = options.key;
         var result = function () {
