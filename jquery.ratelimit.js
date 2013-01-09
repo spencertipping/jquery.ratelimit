@@ -29,9 +29,9 @@
   $.rateLimited = function (options, f) {
     if (!f) f = options, options = null;
 
-    var settings = $.extend({}, $.rateLimited.defaults, options);
-    var delay    = settings.delay;
-    var stateKey = settings.key;
+    options = $.extend({}, $.rateLimited.defaults, options);
+    var delay    = options.delay;
+    var stateKey = options.key;
     var result = function () {
       var timeout = result[stateKey];
       var self    = this;
